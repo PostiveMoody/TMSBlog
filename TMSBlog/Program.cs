@@ -42,6 +42,10 @@ namespace TMSBlog
                 name: "Publication",
                 pattern: "{controller=Publication}/{action=Post}");
 
+            app.MapControllerRoute(
+                name: "Publication",
+                pattern: "{controller=Publication}/{action=Index}");
+
             app.Run();
         }
     }

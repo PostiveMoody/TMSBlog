@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
 using TMSBlog.ApiResult;
 using TMSBlog.Models;
 
@@ -32,6 +30,18 @@ namespace TMSBlog.Controllers
             };
 
             return apiResult.ToApiResult();
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            string jsonText = string.Empty;
+            if (System.IO.File.Exists(_filePath))
+                jsonText = System.IO.File.ReadAllText(_filePath);
+
+            var result = JsonConvert.DeserializeObject<List<Publication>>(jsonText);
+
+            return View(result);
         }
 
         [HttpGet]

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Publication>
+
+@foreach (var item in @Model)
+{
+    <div>
+        <p>@item.Name</p>
+        <p>@item.Description</p>
+        <p>@item.Content</p>
+    </div>
+    
+}
